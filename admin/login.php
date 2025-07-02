@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="login-container">
         <h2>Admin Login</h2>
         
         <?php if (isset($error)): ?>
@@ -59,4 +59,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>Demo credentials: admin / admin</p>
     </div>
 </body>
-</html> 
+</html>  
