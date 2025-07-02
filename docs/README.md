@@ -1,3 +1,3 @@
 # Demo Project
 
-This project is a simple PHP demo with intentional bugs for educational purposes. 
+This project is a simple PHP demo for educational purposes. 
