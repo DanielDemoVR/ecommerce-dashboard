@@ -21,4 +21,34 @@ function getAllUsers() {
         $users[] = $row;
     }
     return $users;
-} 
+}
+
+function checkDatabase($username, $password) {
+    $csvFile = __DIR__ . '/../data/users.csv';
+    
+    if (!file_exists($csvFile)) {
+        return false;
+    }
+    
+    $handle = fopen($csvFile, 'r');
+    
+    while (($line = fgetcsv($handle)) !== false) {
+        if (!empty($line[0]) && $line[0][0] !== '#') {
+            break;
+        }
+    }
+    
+    while (($row = fgetcsv($handle)) !== false) {
+        if (count($row) >= 4) {
+            $csvUsername = trim($row[1]);
+            $csvPassword = trim($row[3]);
+            if ($csvUsername === $username && $csvPassword === $password) {
+                fclose($handle);
+                return true;
+            }
+        }
+    }
+    
+    fclose($handle);
+    return false;
+}       
