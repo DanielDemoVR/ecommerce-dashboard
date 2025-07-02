@@ -1,0 +1,26 @@
+/* Broken responsive design: fixed width container */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Primary button style */
+.button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.button:hover {
+    background: #0056b3;
+} 
