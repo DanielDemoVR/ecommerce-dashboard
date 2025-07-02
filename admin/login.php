@@ -1,8 +1,9 @@
 <?php
-// Intentional bug for demo: 'or' is not supported in PHP 8+, ValueError is not standard for this case
+require_once '../includes/functions.php';
+
 function validateUser($username, $password) {
-    if (empty($username) or empty($password)) {
-        throw new ValueError("Invalid credentials");
+    if (empty($username) || empty($password)) {
+        return false;
     }
     return checkDatabase($username, $password);
 }
@@ -25,6 +26,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: dashboard.php');
         exit();
     } else {
-        $error = "Login failed";
+        $error = "Invalid username or password";
     }
-} 
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Login</h2>
+        
+        <?php if (isset($error)): ?>
+            <div class="error"><?php echo htmlspecialchars($error); ?></div>
+        <?php endif; ?>
+        
+        <form method="POST" action="login.php">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        
+        <p>Demo credentials: admin / admin</p>
+    </div>
+</body>
+</html> 
