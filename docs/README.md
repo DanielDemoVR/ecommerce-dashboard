@@ -1,4 +1,4 @@
-# Ecommerce Dashboard - Demo Project
+# Ecommerce Dashboard - Demo Project.  
 
 This project is a simple PHP demo for educational purposes, designed to demonstrate basic web development concepts using the LAMP stack.
 
