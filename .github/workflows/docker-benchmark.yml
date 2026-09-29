@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: avrea-ubuntu-latest
+    runs-on: avrea-ubuntu-latest-8-vcpu
     steps:
       - uses: actions/checkout@v4
 
