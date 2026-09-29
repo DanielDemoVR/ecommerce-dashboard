@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: avrea-ubuntu-latest-8-vcpu
+    runs-on: avrea-ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -17,5 +17,5 @@ jobs:
         with:
           context: .
           push: false
-          cache-from: type=gha
+          cache-from: type=gha,url_v2=https://cache.avrea.com/
           cache-to: type=gha,mode=max,url_v2=https://cache.avrea.com/
